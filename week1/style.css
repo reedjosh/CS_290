@@ -1,0 +1,68 @@
+/* style.css
+ * by: Joshua Reed
+ * for: CS 290 Web Design
+ * assignemnt 2
+ */
+
+
+body {
+    background-color: white;
+}
+h1 {
+    color: black;
+}
+p {
+}
+
+/* Table Styling */
+table {
+    border-collapse: collapse;
+}
+
+tbody td:first-child {
+    font-style: italic;
+}
+tbody tr:nth-child(even) {
+    background-color: #eee;
+}
+tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+table th{
+    background-color: #eee;
+    border-spacing: 5px;
+    padding: 15px;
+    text-align: left;
+}
+
+
+td, tr {
+    border-spacing: 5px;
+    padding: 15px;
+}
+
+
+
+tfoot {
+    background-color: #eee;
+}
+
+/* Form Styling */
+fieldset {
+    margin:15px;
+    padding:15px;
+}
+
+
+/* Divs */
+div.inner-content{
+    background-color:#66c2ff;
+    width:75%;
+}
+div.outer-content{
+    background-color:#ff66d9; 
+    width:75%;
+    padding:10px;
+    margin:20px;
+}
