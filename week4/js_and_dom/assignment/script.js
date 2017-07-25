@@ -32,12 +32,11 @@ function tableCreate(rowCnt, colCnt){
         var tblBody = document.createElement("tbody");
 
         // Append the <tbody> to the <table>.
-        // Append the table to the body.
+        tbl.style.padding = "10px";
+        tbl.style.borderSpacing= "10px";
         tbl.appendChild(tblBody);
         document.body.appendChild(tbl);
 
-        // Set the table's border to 2 pixels.
-        tbl.setAttribute("border", "2");
 
         // Create and append table rows to the table body.
         for (var j=0; j<rowCnt; j++){
@@ -50,11 +49,22 @@ function tableCreate(rowCnt, colCnt){
                 var cell = document.createElement("td");    
                 var cellText = document.createTextNode(j + " " + i); 
                 cell.appendChild(cellText);
+                cell.style.border = "solid white thick";
                 row.appendChild(cell);
                 }
             }
 
     }
+
+function cellAt(coord){
+    
+    var tBody = document.getElementsByTagName("tbody")[0];
+    var cell = tBody.rows[coord[0]].cells[coord[1]];
+        
+    return cell;
+    }
+
+
 
 
 // This is a function generater. The function that is returned allows
@@ -74,10 +84,10 @@ function modifyCoords(arr, currentCoord){
 
     // Prototyped function for each button.
     return function modCoords(){
-        currentCoord[0] = limitCoord(4, 0, currentCoord[0]+arr[0]);
-        currentCoord[1] = limitCoord(4, 0, currentCoord[1]+arr[1]);
-        //currentCoord[0] = currentCoord[0]+arr[0];
-        //currentCoord[1] = currentCoord[1]+arr[1];
+        var temp = cellAt(currentCoord).style.border = "solid white thick";
+        currentCoord[0] = limitCoord(3, 0, currentCoord[0]+arr[0]);
+        currentCoord[1] = limitCoord(3, 0, currentCoord[1]+arr[1]);
+        cellAt(currentCoord).style.border = "solid black thick";
         var cText = document.getElementById("cText");
         cText.innerHTML = currentCoord;
         };
@@ -87,8 +97,8 @@ function modifyCoords(arr, currentCoord){
 // This function makes buttons that modify and track a coordinate.
 // This coordinate is then used later to move which table element is highlighted.
 function makeButtons(){
-    var lst = {'up':[-1,0], 'down':[1,0], 'left':[0,-1], 'right':[0,1]};
     var currentCoord = [0, 0];
+    var lst = {'up':[-1,0], 'down':[1,0], 'left':[0,-1], 'right':[0,1]};
     for (var key in lst){
         var btn = document.createElement("button");
         var bText = document.createTextNode(key);
@@ -96,6 +106,7 @@ function makeButtons(){
         btn.onclick = modifyCoords(lst[key], currentCoord);
         document.body.appendChild(btn);
         }
+    cellAt(currentCoord).style.border = "solid black thick";  // Initialize cell border location.
     var div = document.createElement("div");
     div.id = "cText";
     div.innerHTML = currentCoord;
