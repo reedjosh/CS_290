@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- Joshua Reed
+     Oregon State University EECS
+     CS 290 -> Web Development
+     Summer, 2017
+
+     Description: This creates two forms.
+     Form One: Enter zipcode and get back weather.
+     Form Two: Post data to httpbin.
+-->
+<head>
+  <meta charset="UTF-8">
+  <script src="script.js"></script> 
+</head>
+
+
+<body onload="main()">
+
+    <form id="weatherForm">
+      <fieldset>
+        <legend>Get Weather</legend>
+        Zipcode
+        <input type="text" name="zipcode">
+
+        City         <input type="text" name="city">
+        (Ex. Portland,OR)
+        <input type="submit" value="Submit" id="submitCity">
+      </fieldset>
+    </form>
+
+    <div>
+      <h2>Result</h2>
+      <ul>
+        <li><span>Input Location: </span><span id="locationReadOut"></span></li>
+        <li><span>Weather Data: </span><span id="weather"></span></li>
+      </ul>
+    </div>
+
+
+    <form id="httpBinForm">
+      <fieldset>
+        <legend>HTTPBin Data In JSON</legend>
+        Upon submit a JSON object with key Test and value TEST will be sent.
+        <input type="submit" value="Submit">
+      </fieldset>
+    </form>
+    <div>
+      <h2>Result</h2>
+      <ul>
+        <li><span>Original Data: Test TEST </span><span id="inData"></span></li>
+        <li><span>Response Data:</span><span id="outData"></span></li>
+      </ul>
+    </div>
+
+</body>
