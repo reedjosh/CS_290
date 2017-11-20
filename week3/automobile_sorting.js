@@ -115,12 +115,12 @@ As an example of the content in the parenthesis:
 1990 Ford F-150 */
 
 console.log("*****");
-console.log("The cars sorted by year are:")
+console.log("The cars sorted by year are:");
 sortArr(yearComparator, automobiles).forEach(function(auto){auto.logMe(false)});
 console.log();
-console.log("The cars sorted by make are:")
+console.log("The cars sorted by make are:");
 sortArr(makeComparator, automobiles).forEach(function(auto){auto.logMe(false)});
 console.log();
-console.log("The cars sorted by type are:")
+console.log("The cars sorted by type are:");
 sortArr(typeComparator, automobiles).forEach(function(auto){auto.logMe(true)});
 console.log("*****");
